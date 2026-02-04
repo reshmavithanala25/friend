@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Proposal ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* CARD */
+.card {
+    display: none;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: glow 2s ease-in-out infinite alternate;
+    max-width: 420px;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,0,100,0.4); }
+    to { box-shadow: 0 0 40px rgba(255,0,100,0.9); }
+}
+
+.love-img {
+    width: 200px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* GIFT BOX */
+.gift {
+    font-size: 120px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* HEARTS */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎁 Clickable Gift -->
+<div class="gift" onclick="openBox()">🎁</div>
+
+<!-- 💌 Proposal Card -->
+<div class="card" id="card">
+    <img src="C:\Users\vrash\OneDrive\Desktop\WhatsApp Image 2026-02-04 at 11.11.32 AM.jpeg" class="love-img">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p>I have something important to ask you…</p>
+    <p>A friend is someone who knows all about you and still loves you.</p>
+    
+</div>
+
+<script>
+function openBox() {
+    document.querySelector(".gift").style.display = "none";
+    document.getElementById("card").style.display = "block";
+}
+
+/* Floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
